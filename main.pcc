@@ -1,0 +1,18 @@
+const int buttonPin      = 2;     // the number of the pushbutton pin
+int buttonState          = 0;         // variable for reading the pushbutton status
+void setup() {
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+
+  buttonState = digitalRead(buttonPin);
+
+
+  if (buttonState == HIGH) {
+    Serial.println("button is HIGH 5v");
+  } else {
+    Serial.println("button is LOW 0v");
+  }
+}
