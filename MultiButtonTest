@@ -1,0 +1,36 @@
+/* Please enter all the pins your wanting to check in the LIST below.
+   MaderDash pin test:
+   12/5/2021.
+*/
+
+const int buttonPin[]    = {2, 3, 4, 5, 6, 7, 8, 9};
+const int arraySize      = sizeof(buttonPin)/2;
+int buttonState[arraySize];
+void setup() {
+  Serial.begin(9600);
+  for (int count = 0; count < arraySize; count++)
+    /* If you need the onboard pullup resistor, be sure to remove
+      the comments from //pinMode(buttonPin[count], INPUT);
+      and comment line //pinMode(buttonPin[count], INPUT);
+    */
+    pinMode(buttonPin[count], INPUT);
+    //pinMode(buttonPin[count], INPUT_PULLUP);
+
+    
+  Serial.println("!!!!! the testing is about to begin!!!!!");
+  Serial.println("!!!!! We will be testing " + String(arraySize) + " pins!!!!!");
+  delay(2000);
+}
+
+void loop() {
+  for (;;) {
+    Serial.println("This is the results of the test::: ");
+    for (int count = 0; count < arraySize; count++) {
+      int value = digitalRead(buttonPin[count]);
+      int pinNumber = buttonPin[count];
+      Serial.println(" The status of pin " + String(pinNumber) + " is ..." + String(value));
+
+    }
+    delay(1000);
+  }
+}
