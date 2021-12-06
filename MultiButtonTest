@@ -10,7 +10,7 @@ void setup() {
   Serial.begin(9600);
   for (int count = 0; count < arraySize; count++)
     /* If you need the onboard pullup resistor, be sure to remove
-      the comments from //pinMode(buttonPin[count], INPUT);
+      the comments from //pinMode(buttonPin[count], INPUT_PULLUP);
       and comment line //pinMode(buttonPin[count], INPUT);
     */
     pinMode(buttonPin[count], INPUT);
